@@ -1,59 +1,47 @@
-# TestApp
+# J's Entry
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.13.
+## Specs
+	2 Projects
+	test-api
+		RepositoryPattern
+		GenericRepository
+		FluentValidation
+		IncomeDTOs
+		SeedData
+		MigrationImplementation
+		Patch Implementation thru Toggling of IsActive,
+			Different from Update
+			Other possible implementations are listed / pre implemented and commented
+	
+	test-app
+		Created using Angular @angular/animations": "^19.2.0"
+		Uses Toastr for Output "ngx-toastr": "^19.0.0",
+		Bootstrap for styling "bootstrap": "^5.3.6",
+		rxjs for Realtime Messaging (Created, Updated, Activated) on multiple instance of app accross browsers
+		AngularForms for form validation
+		
+		Bonus: Updating / Creating will update the list (even on other tabs)
+		Updating will either update / notify user on Edit page (even on other tabs)
+			Thru Notifications
+	
+	
+## Setup
+    git clone https://github.com/arvinjaysontamayocastro/test-api
+	test-api
+		1. dotnet restore
+		2. cd api
+		3. update appsettings.json and appsettings.Development.json "DefaultConnection"
+			// Note: this is added on the push for easy demo, not recommended
+		4. dotnet watch
+		
+    git clone https://github.com/arvinjaysontamayocastro/test-app
+	test-app
+		npm install
+		ng serve
+		
+		Note: some links are hardcoded for now, just for demo purposes,
+		Better setup environment variables
 
-## Development server
+## Looking forward to working with you!
+Jayson Castro
 
-To start a local development server, run:
-
-```bash
-ng serve
-```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
