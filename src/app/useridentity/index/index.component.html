@@ -1,0 +1,51 @@
+<div class="container">
+    <h1>Pick a profile</h1>
+                          <a href="#" [routerLink]="['/useridentity/', 'create']" class="btn btn-success me-3">Create New Entry +</a>
+
+    <div class="card-deck">
+    <div class="card" style="width: 18rem;" *ngFor="let userIdentity of userIdentities">
+  <!-- <img src="..." class="card-img-top" alt="..."> -->
+  <div class="card-body card-user-identity">
+    <div class="profile-letters">{{userIdentity.fullName | firstLetters}}</div>
+    <h5 class="card-title">{{ userIdentity.fullName }}</h5>
+                <p>{{ userIdentity.userId }}</p>
+                <p>{{ userIdentity.email }}</p>
+                <p>{{ userIdentity.sourceSystem }}</p>
+                <p>{{ userIdentity.lastUpdated | date : "short" }}</p>
+                <p>{{ userIdentity.isActive ? 'active' : 'not active' }}</p>
+    <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+    <div class="action-container">
+                  <a href="#" [routerLink]="['/useridentity/', userIdentity.id, 'view']" class="btn btn-primary me-3">View</a>
+                  <a href="#" [routerLink]="['/useridentity/', userIdentity.id, 'edit']" class="btn btn-primary">Edit</a>
+  </div></div>
+</div>
+</div>
+    <!-- <table class="table table-striped">
+        <thead>
+              <tr>
+                <th>User Id</th>
+                <th>Email</th>
+                <th>Full Name</th>
+                <th>Source System</th>
+                <th>Last Updated</th>
+                <th>Is Active</th>
+                <th width="250px">Action</th>
+              </tr>
+        </thead>
+        <tbody>
+              <tr *ngFor="let userIdentity of userIdentities">
+                <td>{{ userIdentity.userId }}</td>
+                <td>{{ userIdentity.email }}</td>
+                <td>{{ userIdentity.fullName }}</td>
+                <td>{{ userIdentity.sourceSystem }}</td>
+                <td>{{ userIdentity.lastUpdated | date : "short" }}</td>
+                <td>{{ userIdentity.isActive }}</td>
+                <td>
+                  <a href="#" [routerLink]="['/useridentity/', userIdentity.id, 'view']" class="btn btn-primary me-3">View</a>
+                  <a href="#" [routerLink]="['/useridentity/', userIdentity.id, 'edit']" class="btn btn-primary">Edit</a>
+                  <button type="button" (click)="deleteUserIdentity(userIdentity.id)" class="btn btn-danger">Delete</button>
+                </td>
+              </tr>
+        </tbody>
+    </table> -->
+ </div>

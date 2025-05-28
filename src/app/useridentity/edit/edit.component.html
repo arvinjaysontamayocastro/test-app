@@ -1,0 +1,90 @@
+<div class="container container-input">
+    <h1>Update User Identity</h1>
+   
+    <a href="#" routerLink="/useridentity/index" class="btn btn-primary">Back</a>
+          
+        <div class="container container-feedback-message" *ngIf="isRefreshAsk">
+        <p>Entry is updated somewhere, Refresh?</p>
+        <button class="btn btn-primary mt-5 me-3" type="button" (click)="refresh()">Refresh</button>
+        <button class="btn btn-primary mt-5 me-3" type="button" (click)="continueediting()">Continue Editing</button>
+        </div>
+    <form [formGroup]="form" (ngSubmit)="submit()" *ngIf="userIdentity">
+           
+        <div class="form-group">
+            <label for="userId">User Id</label>
+            <input 
+                formControlName="userId"
+                id="userId" 
+                type="text" 
+                [(ngModel)]="userIdentity.userId"
+                class="form-control"
+                readonly>
+        </div>
+    
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input 
+                formControlName="email"
+                id="email" 
+                type="text" 
+                [(ngModel)]="userIdentity.email"
+                class="form-control">
+            <div *ngIf="f['email'].touched 
+            && f['email'].invalid" class="alert alert-danger">
+                <div *ngIf="f['email'].errors 
+                && f['email'].errors['required']">
+                Email is required.
+                </div>
+            </div>
+        </div>
+           
+        <div class="form-group">
+            <label for="fullName">Full Name</label>
+            <input 
+                formControlName="fullName"
+                id="fullName" 
+                type="text" 
+                [(ngModel)]="userIdentity.fullName"
+                class="form-control">
+            <div *ngIf="f['fullName'].touched && f['fullName'].invalid" class="alert alert-danger">
+                <div *ngIf="f['fullName'].errors && f['fullName'].errors['required']">
+                Full Name is required.
+                </div>
+            </div>
+        </div>
+
+           
+        <div class="form-group">
+            <label for="sourceSystem">Source System</label>
+            <input 
+                formControlName="sourceSystem"
+                id="sourceSystem" 
+                type="text" 
+                [(ngModel)]="userIdentity.sourceSystem"
+                class="form-control">
+            <div *ngIf="f['sourceSystem'].touched && f['sourceSystem'].invalid" class="alert alert-danger">
+                <div *ngIf="f['sourceSystem'].errors && f['sourceSystem'].errors['required']">
+                Source System is required.
+                </div>
+            </div>
+        </div>
+           
+        <div class="form-group">
+            <label for="lastUpdated">Last Updated</label>
+            <p>{{userIdentity.lastUpdated | date : 'short'}}</p>
+        </div>
+           
+        <div class="form-group">
+            <label for="isActive" class="pe-3">Is Active </label>
+            <input 
+                formControlName="isActive"
+                id="isActive" 
+                type="checkbox" 
+                [(ngModel)]="userIdentity.isActive"
+                class="form-check-input">
+        </div>
+        <button class="btn btn-primary mt-5 me-3" type="button" (click)="activate()">Toggle Active</button>
+
+        <button class="btn btn-primary mt-5" type="submit" [disabled]="!form.valid">Update</button>
+    </form>
+</div>
